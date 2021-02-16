@@ -11,7 +11,16 @@ Run the command bellow, inside this repository root path, in order to setup the 
 
 
 ```bash
-source ./init.sh
+source ./setup.sh
+```
+
+### Assigning a different port to Postgres
+
+If you want to override the port used both to run the postgres container and used to connect to the database, you can pass
+POSTGRES_PORT variable to the setup.sh script:
+
+```bash
+POSTGRES_PORT=5433 source ./setup.sh
 ```
 
 ### Requirements
@@ -25,10 +34,36 @@ source ./init.sh
 
 
 
-## Test the postgres script
+## Running the postgres script
 
-After sourcing the init.sh in a terminal session, you can execute:
+After sourcing the setup.sh in a terminal session, you can execute:
+
+### 1. Starting the postgres database
+
+```bash
+startpg
+```
+
+### 2. Call the postgres_graal_script.js using the localjjs aliase
+
+> The localjjs is a bash alias which calls the Java Class `com.oracle.truffle.js.shell.JSLauncher` passing the psotgres_graal_script.js as the
+script it should execute.
+
 
 ```bash
 localjjs postgres_graal_script.js
+```
+
+**It Outputs:**
+
+```
+--------------------------------------------------------------
+GRAAL JS - Postgres script - PG Port: 5432
+--------------------------------------------------------------
+--------------------------------------------------------------
+Row 1   ::::    1       |       Jota
+Row 2   ::::    2       |       Pop
+Row 3   ::::    3       |       Pepa
+Row 4   ::::    4       |       Pig
+--------------------------------------------------------------
 ```
