@@ -5,9 +5,20 @@ By [@abner](@abner) - Ábner Oliveira
 * https://twitter.com/abneroliveira
 * https://www.linkedin.com/public-profile/in/abneroliveira
 
+This project allows to write scripts Java using Javascript
+trough the GraalJS Engine in a standalone way.
+
+The script provided as an example connects to a Postgres database and prints the rows of the sample table.
+
+**Requirements: **
+
+* Any Java SDK at version 11 or superior
+* Platforms supported: Linux, MacOS or Windows (with WSL or Git Bash)
+* Docker (optional to run the Postgres instance)
+
 ## How to execute
 
-Run the command bellow, inside this repository root path, in order to setup the jars folder with the Java dependencies needed to run javascript inside the JVM through GraalJS and also to load two aliases commands: `runpg` and `localjjs` (works on linux or wsl on Windows).
+Run the command bellow, inside this repository root path, in order to setup the jars folder with the Java dependencies needed to run javascript inside the JVM through GraalJS and also to load two aliases commands: `startpg` [runs Postgres] and `localjjs` [starts the javascript REPL or run a given script].
 
 
 ```bash
@@ -61,9 +72,9 @@ localjjs postgres_graal_script.js
 GRAAL JS - Postgres script - PG Port: 5432
 --------------------------------------------------------------
 --------------------------------------------------------------
-Row 1   ::::    1       |       Jota
-Row 2   ::::    2       |       Pop
-Row 3   ::::    3       |       Pepa
-Row 4   ::::    4       |       Pig
+Row 1   ::::    1       |       Angel
+Row 2   ::::    2       |       Beth
+Row 3   ::::    3       |       Sophie
+Row 4   ::::    4       |       Zeneth
 --------------------------------------------------------------
 ```

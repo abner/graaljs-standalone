@@ -4,7 +4,7 @@ name varchar(255) not null
 );
 
 
-insert into pgtable(name) values('Jota');
-insert into pgtable(name) values('Pop');
-insert into pgtable(name) values('Pepa');
-insert into pgtable(name) values('Pig');
+insert into pgtable(name) values('Angel');
+insert into pgtable(name) values('Beth');
+insert into pgtable(name) values('Sophie');
+insert into pgtable(name) values('Zeneth');
