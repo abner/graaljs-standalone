@@ -10,6 +10,8 @@ trough the GraalJS Engine in a standalone way.
 
 The script provided as an example connects to a Postgres database and prints the rows of the sample table.
 
+> If you have GraalVM installed you can just use the `js` binary provided in the GraalVM installation. But if you want to use the very optmized Graaljs engine with a normal Java JDK, this repository just will facilitate the things for you.
+
 **Requirements: **
 
 * Any Java SDK at version 11 or superior
@@ -18,7 +20,7 @@ The script provided as an example connects to a Postgres database and prints the
 
 ## How to execute
 
-Run the command bellow, inside this repository root path, in order to setup the jars folder with the Java dependencies needed to run javascript inside the JVM through GraalJS and also to load two aliases commands: `startpg` [runs Postgres] and `localjjs` [starts the javascript REPL or run a given script].
+Run the command bellow, inside this repository root path, in order to setup the jars folder with the Java dependencies needed to run javascript inside the JVM through GraalJS and also to load two aliases commands: `startpg` [runs Postgres] and `graaljs` [starts the javascript REPL or run a given script].
 
 
 ```bash
@@ -41,7 +43,7 @@ POSTGRES_PORT=5433 source ./setup.sh
 ## Aliases
 
 * `rungpg`  - Starts a docker container running a postgres  database
-* `localjjs` - Runs the localjjs GraalJS REPL or runs a script if passed
+* `graaljs` - Runs the GraalJS REPL or runs a script if passed
 
 
 
@@ -55,14 +57,14 @@ After sourcing the setup.sh in a terminal session, you can execute:
 startpg
 ```
 
-### 2. Call the postgres_graal_script.js using the localjjs aliase
+### 2. Call the postgres_graal_script.js using the graaljs aliase
 
-> The localjjs is a bash alias which calls the Java Class `com.oracle.truffle.js.shell.JSLauncher` passing the psotgres_graal_script.js as the
+> The graaljs is a bash alias which calls the Java Class `com.oracle.truffle.js.shell.JSLauncher` passing the psotgres_graal_script.js as the
 script it should execute.
 
 
 ```bash
-localjjs postgres_graal_script.js
+graaljs postgres_graal_script.js
 ```
 
 **It Outputs:**
