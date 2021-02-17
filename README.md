@@ -78,3 +78,6 @@ Row 3   ::::    3       |       Sophie
 Row 4   ::::    4       |       Zeneth
 --------------------------------------------------------------
 ```
+## References:
+
+* https://www.graalvm.org/reference-manual/js/RunOnJDK/#graalvm-javascript-without-maven---jar-files-from-graalvm
