@@ -1,0 +1,13 @@
+{
+  "version" : "0.2.0",
+  "configurations" : [
+
+    {
+      "type": "node2",
+      "restart": true,
+      "port": 9300,
+      "name":"graaljs-standalone",
+      "request": "attach"
+    }
+  ]
+}
