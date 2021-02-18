@@ -12,7 +12,9 @@ The script provided as an example connects to a Postgres database and prints the
 
 > If you have GraalVM installed you can just use the `js` binary provided in the GraalVM installation. But if you want to use the very optmized Graaljs engine with a normal Java JDK, this repository just will facilitate the things for you.
 
-**Requirements: **
+**Suggested Reading**: https://chrisseaton.com/truffleruby/codeone18/ten-things-graal.pdf
+
+## Requirements:
 
 * Any Java SDK at version 11 or superior
 * Platforms supported: Linux, MacOS or Windows (with WSL or Git Bash)
