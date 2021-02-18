@@ -83,18 +83,16 @@ Row 4   ::::    4       |       Zeneth
 
 ## Debug with Chrome Inspector
 
-For debug facilities, it's necessary to use a GraalVM SDK, which
-provides "--inspect" arguments and Chrome Inspector to the Java Runtime.
-
-In order to inspect the script execution through Chrome Inspector, just
-run the script passing the argument `--inspect`:
+In order to inspect the script execution through Chrome Inspector, just run the script using the alias `graaljs_debug`:
 
 ```bash
-graaljs postgres_graal_script.js
+graaljs_debug postgres_graal_script.js
 ```
 
 Then open the url `chrome://inspect` on Chrome or Chromium browser and click in `inspect` under the `GraalVM` label.
 
+
+If you're using the Visual Studio Code Editor, you can also attach to the debug session using the Launcher graaljs-standalone after running the script through the graaljs_debug alias.
 
 
 ## References:
