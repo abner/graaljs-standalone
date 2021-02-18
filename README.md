@@ -98,3 +98,4 @@ If you're using the Visual Studio Code Editor, you can also attach to the debug 
 ## References:
 
 * https://www.graalvm.org/reference-manual/js/RunOnJDK/#graalvm-javascript-without-maven---jar-files-from-graalvm
+* https://nipafx.dev/five-command-line-options-hack-java-module-system/
