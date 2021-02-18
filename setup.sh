@@ -21,13 +21,14 @@ if [ ! -d $JJS_JARSPATH ]; then
 fi
 
 
-JAVA_CLASSPATH="$JJS_JARSPATH/launcher-common-21.0.0.2.jar:$JJS_JARSPATH/js-launcher-21.0.0.2.jar:$JJS_JARSPATH/js-21.0.0.2.jar:$JJS_JVMCIPATH/truffle-api-21.0.0.2.jar:$JJS_JVMCIPATH/compiler-management-21.0.0.2.jar:$JJS_JVMCIPATH/graal-sdk-21.0.0.2.jar:$JJS_JARSPATH/js-scriptengine-21.0.0.2.jar:$JJS_JARSPATH/regex-21.0.0.2.jar:$JJS_JARSPATH/chrome-inspector-21.0.0.2.jar:$JJS_JARSPATH/icu4j-68.2.jar:$JJS_JARSPATH/postgresql-42.2.18.jar"
+#JAVA_CLASSPATH="$JJS_JARSPATH/launcher-common-21.0.0.2.jar:$JJS_JARSPATH/js-launcher-21.0.0.2.jar:$JJS_JARSPATH/js-21.0.0.2.jar:$JJS_JVMCIPATH/truffle-api-21.0.0.2.jar:$JJS_JVMCIPATH/compiler-management-21.0.0.2.jar:$JJS_JVMCIPATH/graal-sdk-21.0.0.2.jar:$JJS_JARSPATH/js-scriptengine-21.0.0.2.jar:$JJS_JARSPATH/regex-21.0.0.2.jar:$JJS_JARSPATH/chrome-inspector-21.0.0.2.jar:$JJS_JARSPATH/icu4j-68.2.jar:$JJS_JARSPATH/postgresql-42.2.18.jar"
+JAVA_CLASSPATH="$JJS_JARSPATH/*"
 JVMCI_CLASSPATH="$JJS_JVMCIPATH:$JJS_JARSPATH"
-# -Dpolyglot.inspect=9300
+
 MODULES_READS="--add-reads com.oracle.truffle.tools.chromeinspector=java.logging"
 MODULES_EXPORTS="--add-exports com.oracle.truffle.tools.profiler/com.oracle.truffle.tools.utils.json=com.oracle.truffle.tools.chromeinspector"
-#MODULES_PATCH="--add-modules ALL-MODULE-PATH"
-alias graaljs="java $MODULES_READS $MODULES_EXPORTS -XX:+IgnoreUnrecognizedVMOptions --module-path=$JVMCI_CLASSPATH -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -XX:+UseJVMCICompiler  --upgrade-module-path=$JJS_JVMCIPATH/compiler-21.0.0.2.jar:$JJS_JVMCIPATH/compiler-management-21.0.0.2.jar -Dpostgres.port=${POSTGRES_PORT:-5432}  -cp $JAVA_CLASSPATH com.oracle.truffle.js.shell.JSLauncher"
-alias graaljs_debug="java $MODULES_READS $MODULES_EXPORTS -XX:+IgnoreUnrecognizedVMOptions -Dpolyglot.inspect=9300 --module-path=$JVMCI_CLASSPATH -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -XX:+UseJVMCICompiler  --upgrade-module-path=$JJS_JVMCIPATH/compiler-21.0.0.2.jar:$JJS_JVMCIPATH/compiler-management-21.0.0.2.jar -Dpostgres.port=${POSTGRES_PORT:-5432}  -cp $JAVA_CLASSPATH com.oracle.truffle.js.shell.JSLauncher"
+
+alias graaljs="java $MODULES_READS $MODULES_EXPORTS -XX:+IgnoreUnrecognizedVMOptions --module-path=$JVMCI_CLASSPATH -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -XX:+UseJVMCICompiler  --upgrade-module-path=$JJS_JVMCIPATH/compiler-21.0.0.2.jar:$JJS_JVMCIPATH/compiler-management-21.0.0.2.jar -Dpostgres.port=${POSTGRES_PORT:-5432}  -cp '$JAVA_CLASSPATH' com.oracle.truffle.js.shell.JSLauncher"
+alias graaljs_debug="java $MODULES_READS $MODULES_EXPORTS -XX:+IgnoreUnrecognizedVMOptions -Dpolyglot.inspect=9300 --module-path=$JVMCI_CLASSPATH -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -XX:+UseJVMCICompiler  --upgrade-module-path=$JJS_JVMCIPATH/compiler-21.0.0.2.jar:$JJS_JVMCIPATH/compiler-management-21.0.0.2.jar -Dpostgres.port=${POSTGRES_PORT:-5432}  -cp '$JAVA_CLASSPATH' com.oracle.truffle.js.shell.JSLauncher"
 alias startpg="docker run --name pggraal -d --rm -it -v $PWD/postgresql:/docker-entrypoint-initdb.d -e  POSTGRES_USER=pguser -e POSTGRES_DB=pgdb  -e POSTGRES_PASSWORD=pgpassword -p ${POSTGRES_PORT:-5432}:5432 postgres:12-alpine"
 alias stoppg="docker stop pggraal"
