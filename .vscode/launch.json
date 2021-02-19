@@ -3,7 +3,9 @@
   "configurations" : [
 
     {
-      "type": "node2",
+      "type": "node",
+
+      "protocol": "auto",
       "restart": true,
       "port": 9300,
       "name":"graaljs-standalone",
