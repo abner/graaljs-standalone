@@ -83,6 +83,11 @@ Row 4   ::::    4       |       Zeneth
 --------------------------------------------------------------
 ```
 
+## Debug with Visual Studio Code
+
+If you're using the Visual Studio Code Editor, you can execute the Debug Launcher `graaljs-standalone` in onder
+to execute the script with the VsCode Debugger cappabilities.
+
 ## Debug with Chrome Inspector
 
 In order to inspect the script execution through Chrome Inspector, just run the script using the alias `graaljs_debug`:
@@ -94,7 +99,6 @@ graaljs_debug postgres_graal_script.js
 Then open the url `chrome://inspect` on Chrome or Chromium browser and click in `inspect` under the `GraalVM` label.
 
 
-If you're using the Visual Studio Code Editor, you can also attach to the debug session using the Launcher graaljs-standalone after running the script through the graaljs_debug alias.
 
 
 ## References:

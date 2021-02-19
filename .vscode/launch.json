@@ -4,12 +4,12 @@
 
     {
       "type": "node",
-
       "protocol": "auto",
-      "restart": true,
+      "restart": false,
       "port": 9300,
       "name":"graaljs-standalone",
-      "request": "attach"
+      "request": "attach",
+      "preLaunchTask": "bash: runscript"
     }
   ]
 }
